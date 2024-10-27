@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEOMETRIA</title>
+</head>
+<body>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+        #header{
+            background-color: #aed15a;
+            width: 100%;
+            height: 300px;
+        }
+        h1.title{
+            color: darkolivegreen;
+            padding-top: 100px;
+        }
+        h6.title{
+            color: white;
+        }
+        #logowanie{
+            background-color: #97b64c ;
+            color: white;
+            margin-top: 50px;
+            margin-right: 50px;
+        }
+        #logform{
+            padding: 30px;
+        }
+        #linia1, #linia2{
+            border: 1px solid black;
+            margin-top: 5px;
+        }
+        #zaloguj{
+            margin-top: 5px;
+        }
+        #main{
+            height: 500px;
+        }
+        #main1, #main2, #main3{
+            background-color: #f1f1f1;
+            float: left;
+            height: 100%;
+            width: calc(33.33% - 40px);
+            margin-left: 30px;
+            margin-top: 10px;
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #main1 p, #main2 p, #main3 p {
+          margin-bottom: 5px;
+        }
+        p button {
+          margin-bottom: 20px;
+        }
+        #prostokat, #trojkat, #kolo{
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 80%;
+        }
+        #footer{
+            height: 210px;
+            background-color: #1c211d;
+            margin-top: 60px;
+            width: 100%;
+        }
+
+        #footer h4{
+            color: white;
+            padding-top: 100px;
+        }
+
+        .left{
+          float: left;
+          margin-left: 20px;
+        }
+
+        .right{
+          float: right;
+          margin-right: 20px;
+        }
+
+    </style>
+
+    <div id="header">
+        <div class="left">
+          <h1 class="title">GEOMETRIA</h1>
+          <h6 class="title">portal matematyczny</h6>
+        </div>
+        <div class="right">
+          <div id="logowanie">
+              <form id="logform">
+                  <h6>logowanie</h6>
+                  <p><input type="text" id="linia1"></p>
+                  <p><input type="text" id="linia2"></p>
+                  <button type="reset" id="zaloguj">zaloguj</button>
+              </form>
+          </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <div id="main1">
+            <img src="prostakat.png" id="prostokat">
+            <p>podaj a: <input type="text" id="pp1"></p>
+            <p>podaj b: <input type="text" id="pp2"></p>
+            <p><button type="button" id="ppb">oblicz pole i obwód</button></p>
+
+            <p><b>WYNIKI OBLICZEŃ:</b></p>
+            <p>pole: <input type="text" id="pp3" readonly disabled></p>
+            <p>odwód: <input type="text" id="pp4" readonly disabled></p>
+        </div>
+        <div id="main2">
+            <img src="trojkat.png" id="trojkat">
+            <p>podaj a: <input type="text" id="pt1"></p>
+            <p>podaj h: <input type="text" id="pt2"></p>
+            <p><button type="button" id="ptb">oblicz pole</button></p>
+
+            <p><b>WYNIKI OBLICZEŃ:</b></p>
+            <p>pole: <input type="text" id="pt3" readonly disabled></p>
+        </div>
+        <div id="main3">
+            <img src="kolo.gif" id="kolo">
+            <p>podaj r: <input type="text" id="pk1"></p>
+            <p><button type="button" id="pkb">oblicz pole i obwód</button></p>
+
+            <p><b>WYNIKI OBLICZEŃ:</b></p>
+            <p>pole: <input type="text" id="pk2" readonly disabled></p>
+            <p>obwód: <input type="text" id="pk3" readonly disabled></p>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="left">
+          <h4>stronę wykonał: Kacper Krzysztof</h4>
+        </div>
+        <div class="right">
+          <img src="matematyka.jpeg">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("ppb").onclick=function(){
+        if(isNaN(pp1.value)||isNaN(pp2.value)||pp1.value==""||pp2.value==""||pp1.value<0||pp2.value<0){
+            alert("Nieprawidlowe dane kwadratu");
+        }else{
+            pp3.value=pp1.value*pp2.value;
+            pp4.value=2*pp1.value+2*pp2.value;
+        }
+            
+            
+        }
+        document.getElementById("ptb").onclick=function(){
+        if(isNaN(pt1.value)||isNaN(pt2.value)||pt1.value==""||pt2.value==""||pt1.value<0||pt2.value<0)
+            alert("Nieprawidlowe dane trojkata");
+        else
+            pt3.value=0.5*pt1.value*pt2.value;
+        }
+        document.getElementById("pkb").onclick=function(){
+        if(isNaN(pk1.value)||pk1.value==""||pk1.value<0){
+            alert("Nieprawidlowe dane kola");
+        }else{
+            pk2.value=pk1.value*pk1.value*Math.PI;
+            pk3.value=2*Math.PI*pk1.value;
+        }
+            
+        }
+    </script>
+
+</body>
+</html>
